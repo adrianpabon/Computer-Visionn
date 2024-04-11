@@ -1,0 +1,6 @@
+opencv-python 
+dlib
+face_recognition
+face_recognition_models
+replicate 
+python-dotenv
