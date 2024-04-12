@@ -18,6 +18,8 @@ while True:
     "image": "https://replicate.delivery/pbxt/KRULC43USWlEx4ZNkXltJqvYaHpEx2uJ4IyUQPRPwYb8SzPf/view.jpg",
     "prompt": "Are you allowed to swim here?"
 }
+    
+    
 
     output = replicate.run(
         "yorickvp/llava-13b:b5f6212d032508382d61ff00469ddda3e32fd8a0e75dc39d8a4191bb742157fb",
