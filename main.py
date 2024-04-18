@@ -63,12 +63,14 @@ print("".join(output))
 known_face_encodings = []
 known_face_names = []
 
-for filename in os.listdir('known_people'):
-    if filename.endswith('.jpg') or filename.endswith('.png') or filename.endswith('.jpeg'):
-        image = face_recognition.load_image_file(f'known_people/{filename}')
-        face_encoding = face_recognition.face_encodings(image)[0]
-        known_face_encodings.append(face_encoding)
-        known_face_names.append(filename.split('.')[0])
+for person_name in os.listdir('known_people'):
+    if os.path.isdir(f'known_people/{person_name}'):  # solo procesa si es un directorio
+        for filename in os.listdir(f'known_people/{person_name}'):
+            if filename.endswith('.jpg') or filename.endswith('.png'):  # solo procesa archivos .jpg y .png
+                image = face_recognition.load_image_file(f'known_people/{person_name}/{filename}')
+                face_encoding = face_recognition.face_encodings(image)[0]
+                known_face_encodings.append(face_encoding)
+                known_face_names.append(person_name)  # usa el nombre de la carpeta como el nombre de la persona
 
 
 while True:
